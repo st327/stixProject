@@ -1,0 +1,22 @@
+{
+    "type": "indicator",
+    "spec_version": "2.1",
+    "id": "indicator--f5aad376-8f06-4893-8579-8df5fdb0b2b0",
+    "created": "2023-03-28T15:09:54.186072Z",
+    "modified": "2023-03-28T15:09:54.249929Z",
+    "name": "File name",
+    "description": "A description.",
+    "pattern": "[file:hashes.md5 = 'd41d8cd98f00b204e9800998ecf8427e']",
+    "pattern_type": "stix",
+    "pattern_version": "2.1",
+    "valid_from": "2020-06-24T15:04:40.048932Z",
+    "labels": [
+        "malicious-activity"
+    ],
+    "external_references": [
+        {
+            "source_name": "capec",
+            "external_id": "CAPEC-163"
+        }
+    ]
+}
