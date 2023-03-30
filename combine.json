@@ -1,4 +1,47 @@
 {
     "type": "bundle",
-    "id": "bundle--4c6e32ef-a91d-4c10-a380-ac8b08937343"
+    "id": "bundle--644710f0-fa5c-4364-8e5d-0add7033aac9",
+    "objects": [
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--f5aad376-8f06-4893-8579-8df5fdb0b2b0",
+            "created": "2023-03-28T15:09:54.186072Z",
+            "modified": "2023-03-28T15:09:54.249929Z",
+            "name": "File name",
+            "description": "A description.",
+            "pattern": "[file:hashes.md5 = 'd41d8cd98f00b204e9800998ecf8427e']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2020-06-24T15:04:40.048932Z",
+            "labels": [
+                "malicious-activity"
+            ],
+            "external_references": [
+                {
+                    "source_name": "capec",
+                    "external_id": "CAPEC-163"
+                }
+            ]
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--7e33a43e-e34b-40ec-89da-36c9bb2cacd5",
+            "created": "2016-05-12T08:17:27.000Z",
+            "modified": "2016-05-12T08:17:27.000Z",
+            "name": "stupid_hack",
+            "description": "A particular form of spear phishing where the attacker claims that the target had won a contest, including personal details, to get them to click on a link."
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--593b6392-799e-4927-9a8e-e9996c15747d",
+            "created": "2023-03-30T15:46:44.753428Z",
+            "modified": "2023-03-30T15:46:44.753428Z",
+            "relationship_type": "name",
+            "source_ref": "indicator--f5aad376-8f06-4893-8579-8df5fdb0b2b0",
+            "target_ref": "attack-pattern--7e33a43e-e34b-40ec-89da-36c9bb2cacd5"
+        }
+    ]
 }

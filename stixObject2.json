@@ -6,8 +6,8 @@
 	  "id": "attack-pattern--7e33a43e-e34b-40ec-89da-36c9bb2cacd5",  
 	  "created": "2016-05-12T08:17:27.000Z",  
 	  "modified": "2016-05-12T08:17:27.000Z",  
-	  "name": "Spear Phishing as Practiced by Adversary X",  
-	  "description": "A particular form of spear phishing where the attacker claims that the target had won a contest, including personal details, to get them to click on a link.",
+	  "name": "Email Phishing",  
+	  "description": "A user who is connected to the internet will be sent an email asking to install software to protect their device while using public wifi",
 	  "external_references": [  
 		{  
 		  "source_name": "capec",  
@@ -35,3 +35,5 @@
 	}
 	
   ]
+	
+  
