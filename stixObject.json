@@ -23,7 +23,7 @@
             "name": "Wolf Spider Variant d1c6",
             "malware_types": [
                 "ddos","adware"
-            ],
+            ]
             
         },
         {
@@ -33,7 +33,7 @@
             "created": "2015-05-07T14:22:14.760Z",
             "modified": "2015-05-07T14:22:14.760Z",
             "name": "Email Phishing",
-            "description": "TBA",
+            "description": "TBA"
             
         },
         {
@@ -43,7 +43,7 @@
             "created": "2015-05-07T14:22:14.760Z",
             "modified": "2015-05-07T14:22:14.760Z",
             "name": "DOS Attack",
-            "description": "TBA",
+            "description": "TBA"
             
         },
         {
@@ -53,7 +53,7 @@
             "created": "2015-05-07T14:22:14.760Z",
             "modified": "2015-05-07T14:22:14.760Z",
             "name": "DNS Poisioning",
-            "description": "TBA",
+            "description": "TBA"
             
         },
         {
@@ -63,7 +63,7 @@
             "created": "2015-05-10T16:27:17.760Z",
             "modified": "2015-05-10T16:27:17.760Z",
             "name": "Evil Eye",
-            "description": "Goblin Panda is a threat actor working for a hacking group named Evil Eye that exploits targets for personal and finiancial gain.",
+            "description": "Goblin Panda is a threat actor working for a hacking group named Evil Eye that exploits targets for personal and finiancial gain."
 
         },
         {
@@ -73,7 +73,7 @@
             "created": "2015-05-10T16:27:17.760Z",
             "modified": "2015-05-10T16:27:17.760Z",
             "name": "Victim",
-            "description": "The person is affected by attacks.",
+            "description": "The person is affected by attacks."
         },
         {
             "type": "location",
@@ -163,8 +163,9 @@
             "modified": "2020-02-29T18:18:08.661Z",
             "relationship_type": "attributed-to",
             "source_ref": "threat-actor--9a8a0d25-7636-429b-a99e-b2a73cd0f11f",
-            "target_ref": "identity--1621d4d4-b67d-41e3-9670-f01faf27d111",
+            "target_ref": "identity--1621d4d4-b67d-41e3-9670-f01faf27d111"
         },
+        {
         	"type": "relationship",
             "spec_version": "2.1",
             "id": "relationship--56e5f3c8-08f3-4e24-9e8e-f87d844672xn",
@@ -172,7 +173,7 @@
             "modified": "2020-02-29T18:18:08.661Z",
             "relationship_type": "located-at",
             "source_ref": "identity--1621d4d4-b67d-41e3-9670-f01faf27d111",
-            "target_ref": "location--a6e9345f-5a15-4c29-8bb3-7dcc5d168d64",
+            "target_ref": "location--a6e9345f-5a15-4c29-8bb3-7dcc5d168d64"
         },
         { 
             "type": "relationship",
@@ -182,7 +183,7 @@
             "modified": "2020-02-29T18:18:08.661Z",
             "relationship_type": "targets",
             "source_ref": "threat-actor--9a8a0d25-7636-429b-a99e-b2a73cd0f11f",
-            "target_ref": "location--a6e9315f-5a15-4t29-8bb3-7dcc5d168d64",
+            "target_ref": "location--a6e9315f-5a15-4t29-8bb3-7dcc5d168d64"
         },
         { 
             "type": "relationship",
@@ -192,7 +193,7 @@
             "modified": "2020-02-29T18:18:08.661Z",
             "relationship_type": "located-at",
             "source_ref": "identity--1621d4d4-b67d-41e3-9670-f71faf20d111",
-            "target_ref": "location--a6e9315f-5a15-4t29-8bb3-7dcc5d168d64",
+            "target_ref": "location--a6e9315f-5a15-4t29-8bb3-7dcc5d168d64"
         }
     ]
 }

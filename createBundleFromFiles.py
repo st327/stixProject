@@ -3,9 +3,12 @@ from tkinter import filedialog
 import ctypes 
 from stix2validator import validate_file, validate_string, print_results,ValidationOptions,validate_instance
 from stix2 import Indicator,ThreatActor,AttackPattern,Bundle, Relationship, parse
+import pyautogui
 import json
 import random
 import math
+import string
+import keyboard
 ##create program to open file import jsons- turn to stix objects - combine objects
 def add_obj_array(array, file):
     inputString = ""
@@ -77,8 +80,8 @@ def reset():
     obj_buttons = []
     curInd = 0
     fileLab.config(text="Files:")  
-    sourceObj = None
-    targetObj = None
+    sourceObj = []
+    targetObj = []
 def createBundle():           
     bundle = Bundle(obj_array)
     ctypes.windll.user32.MessageBoxW(0, "bundle successfully created", "success", 1)
@@ -116,19 +119,33 @@ def lineUpdate():
 def makeReference(sourceId, targetId):
     global obj_array
     print(sourceId, targetId)
-    relationship = Relationship(relationship_type='name',                            
-        source_ref = sourceId,
-        target_ref = targetId,)
-    obj_array.append(relationship)
-    add_stix_button(relationship)
-    lineUpdate()
+
+    type = pyautogui.prompt("Relationship type")
+    if(type != None):
+        if(type == ''):
+            type = ''.join(random.choices(string.ascii_uppercase 
+                            + string.digits + string.ascii_lowercase, k=random.randrange(1, 10)))
+        relationship = Relationship(relationship_type=type,                            
+            source_ref = sourceId,
+            target_ref = targetId,)
+        obj_array.append(relationship)
+        add_stix_button(relationship)
+        lineUpdate()
 def find_bottonID( id):
     result = None
     for o in obj_buttons:
         if(o.id == id):
             result = o
     return result
-
+def reference_exists(sourceID, targetId):
+    global obj_array
+    for o in obj_array:
+        if(o.type == 'relationship' and ((o.source_ref == sourceID and o.target_ref == targetId ) 
+                                         or (o.source_ref == targetId and o.target_ref == sourceID ) ) ):
+            print( "relationship already exist")
+            return True
+    return False
+            
 class StixObject():
     widget = None
     target = None
@@ -171,28 +188,36 @@ class StixObject():
         event.widget.place(x = x, y = y)
         lineUpdate()
         
-    def left_click(self,event):              
+    def left_click(self,event):       
+        global sourceObj, targetObj       
         event.widget.configure(bg="green")  
-        sourceObj = None
-        targetObj = None
+        sourceObj = []
+        targetObj = []
     def right_click(self, event):
         global sourceObj, targetObj  
         if(self.source == None):      
-            if sourceObj == None:
-                sourceObj = self.id
+            if sourceObj == [] or keyboard.is_pressed("Shift"):
+                sourceObj.append( self.id)
                 event.widget.configure(bg="red")
             else :
-                if(sourceObj != self.id):
-                    targetObj =  self.id
-                    makeReference(sourceObj, targetObj) 
-                    but = find_bottonID(sourceObj)
-                    but.widget.configure(bg="gray")  
-                    sourceObj = None
-                    targetObj = None
+                if(sourceObj.count( self.id) == 0):
+                    for ob in sourceObj:
+                        if(not reference_exists(ob, self.id) ):
+                            targetObj =  self.id
+                            makeReference(ob, targetObj) 
+                            but = find_bottonID(ob)
+                            but.widget.configure(bg="gray")  
+                        else:
+                            but = find_bottonID(ob)
+                            but.widget.configure(bg="gray")  
+                    sourceObj = []
+                    targetObj = []
                 else:
+                    for ob in sourceObj:
+                        find_bottonID(ob).widget.configure(bg="gray") 
                     event.widget.configure(bg="gray")  
-                    sourceObj = None
-                    targetObj = None
+                    sourceObj = []
+                    targetObj = []
             
             
     def no_click(self, event):
@@ -205,7 +230,8 @@ class StixObject():
         sbot = find_bottonID(self.source)
         tbot = find_bottonID(self.target)        
         if( sbot != None and tbot != None):            
-            self.line = canvas.create_line( sbot.x, sbot.y, tbot.x, tbot.y, tbot.x+6, tbot.y +6)              
+            self.line = canvas.create_line( sbot.x, sbot.y, tbot.x, tbot.y, tbot.x, tbot.y-30, tbot.x, tbot.y+30)  
+                      
             xx = sbot.x + (tbot.x -sbot.x)/2 - self.widget.winfo_reqwidth()/2  
             yy = sbot.y + (tbot.y -sbot.y)/2 - self.widget.winfo_reqheight()/2
             self.widget.place(x=xx, y=yy)
@@ -213,7 +239,7 @@ class StixObject():
         sbot = find_bottonID(self.source)
         tbot = find_bottonID(self.target)        
         if( sbot != None and tbot != None):            
-            canvas.coords( self.line, sbot.x, sbot.y, tbot.x, tbot.y)      
+            canvas.coords( self.line, sbot.x, sbot.y, tbot.x, tbot.y, tbot.x, tbot.y-30, tbot.x, tbot.y+30)      
             xx = sbot.x + (tbot.x -sbot.x)/2 - self.widget.winfo_reqwidth()/2  
             yy = sbot.y + (tbot.y -sbot.y)/2 - self.widget.winfo_reqheight()/2
             self.widget.place(x=xx, y=yy)                    
@@ -221,14 +247,12 @@ class StixObject():
 # Create an instance of window
 win=Tk()
 canvas = Canvas(width=800, height=600)
-sourceObj = None
-targetObj = None
+sourceObj = []
+targetObj = []
 # Set the geometry of the window
 win.geometry("800x600")
 
-
 Label(win, text="Click the button to open a dialog", font='Arial 16 bold').pack(pady=3)
-
 
 files = []
 obj_array   = []

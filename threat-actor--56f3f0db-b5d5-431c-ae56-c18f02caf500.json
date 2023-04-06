@@ -1,0 +1,24 @@
+{
+    "type": "threat-actor",
+    "spec_version": "2.1",
+    "id": "threat-actor--56f3f0db-b5d5-431c-ae56-c18f02caf500",
+    "created": "2023-04-04T19:04:28.525018Z",
+    "modified": "2023-04-04T19:04:28.525018Z",
+    "name": "russian haker",
+    "description": "A particular form of spear phishing where the attacker claims that the target had won a contest, including personal details, to get them to click on a link.",
+    "threat_actor_types": [
+        "{'terrorist'}"
+    ],
+    "roles": [
+        "{'director'}"
+    ],
+    "goals": [
+        "{'world domination'}"
+    ],
+    "sophistication": "[{'very'}]",
+    "resource_level": "[{'government'}]",
+    "primary_motivation": "[{'ideology'}]",
+    "secondary_motivations": [
+        "{'no gf'}"
+    ]
+}
