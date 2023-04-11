@@ -183,35 +183,6 @@ def createStixObject():
             objJson = {
                 "name": rnam,
                 "type": rmenu,
-            }   
-        for b in windowButtons:         
-            b.destroy()
-        
-       
-    def clicked2():
-        global menu
-        amount = number.get()
-        if(amount == ''):
-            amount = 1  
-        else:
-            amount = int( amount) 
-            if(amount > 20 ):
-                amount = 20
-            if(amount < 0 ):
-                amount = 1
-        nam = name.get()
-      #  description = desc.get()
-        for i in range(0, amount):     
-            rnam = nam
-            if(nam == ''):
-                rnam = ''.join(random.choices(string.ascii_uppercase 
-                        + string.digits + string.ascii_lowercase, k=random.randrange(3, 10)))
-            rmenu = menu
-            if(menu == ''):
-                rmenu = options[random.randrange(0, len(options))]
-            objJson = {
-                "name": rnam,
-                "type": rmenu,
             }            
     #        if(description != ''):
      #           objJson["Description"] = description
@@ -219,24 +190,20 @@ def createStixObject():
             print(strJson)
             obj = parse(strJson)                
             add_stix_button(obj)
-            obj_array.append(obj)              
+            obj_array.append(obj)
+                                          
+        window.destroy()
+                  
     menu = ""
     window = tk.Toplevel()
     window.title("Create Stix object part one")
     window.geometry('300x300')
     window.configure(background = "white")
     variable = StringVar()
-    windowButtons = []
-    nam = Label(window ,text = "Name")
-    windowButtons.append(nam)
-    nam.grid(row = 0,column = 0)
-    typ = Label(window ,text = "Type")
-    typ.grid(row = 1,column = 0)
-    windowButtons.append(typ)
+    a = Label(window ,text = "Name").grid(row = 0,column = 0)
+    b = Label(window ,text = "Type").grid(row = 1,column = 0)
  #   c = Label(window ,text = "Description").grid(row = 2,column = 0)
-    num = Label(window ,text = "Number")
-    num.grid(row = 2,column = 0)    
-    windowButtons.append(num)
+    d = Label(window ,text = "Number").grid(row = 2,column = 0)    
     name = Entry(window)
     name.grid(row = 0,column = 1)
     type = OptionMenu( window , variable, *options, command=selectMenu )

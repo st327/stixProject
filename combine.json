@@ -1,47 +1,68 @@
 {
     "type": "bundle",
-    "id": "bundle--158b786c-28fd-4485-acf1-1a1775e6d311",
+    "id": "bundle--a74b6845-bd61-4882-a696-29b81628c4bf",
     "objects": [
         {
             "type": "attack-pattern",
-            "spec_version": "2.1",
-            "id": "attack-pattern--7e33a43e-e34b-40ec-89da-36c9bb2cacd5",
-            "created": "2016-05-12T08:17:27.000Z",
-            "modified": "2016-05-12T08:17:27.000Z",
-            "name": "stupid_hack",
-            "description": "A particular form of spear phishing where the attacker claims that the target had won a contest, including personal details, to get them to click on a link."
+            "id": "attack-pattern--cf202f7c-f933-4ba4-977a-8928f5d044dc",
+            "created": "2023-04-07T14:13:16.751Z",
+            "modified": "2023-04-07T14:13:16.751Z",
+            "name": "pnBci"
         },
         {
-            "type": "indicator",
-            "spec_version": "2.1",
-            "id": "indicator--f5aad376-8f06-4893-8579-8df5fdb0b2b0",
-            "created": "2023-03-28T15:09:54.186072Z",
-            "modified": "2023-03-28T15:09:54.249929Z",
-            "name": "File name",
-            "description": "A description.",
-            "pattern": "[file:hashes.md5 = 'd41d8cd98f00b204e9800998ecf8427e']",
-            "pattern_type": "stix",
-            "pattern_version": "2.1",
-            "valid_from": "2020-06-24T15:04:40.048932Z",
-            "labels": [
-                "malicious-activity"
-            ],
-            "external_references": [
-                {
-                    "source_name": "capec",
-                    "external_id": "CAPEC-163"
-                }
-            ]
+            "type": "attack-pattern",
+            "id": "attack-pattern--ae54b65d-7f49-44de-8e4a-ef92ac6db176",
+            "created": "2023-04-07T14:13:16.753Z",
+            "modified": "2023-04-07T14:13:16.753Z",
+            "name": "H1476Mxd"
+        },
+        {
+            "type": "attack-pattern",
+            "id": "attack-pattern--48481f69-2935-4f6b-ba67-5794920d8ff1",
+            "created": "2023-04-07T14:13:16.753Z",
+            "modified": "2023-04-07T14:13:16.753Z",
+            "name": "fvic"
+        },
+        {
+            "type": "attack-pattern",
+            "id": "attack-pattern--36acdbc2-ed3c-4f9b-85ab-dd1636329cb4",
+            "created": "2023-04-07T14:13:16.754Z",
+            "modified": "2023-04-07T14:13:16.754Z",
+            "name": "b9Y09u"
+        },
+        {
+            "type": "attack-pattern",
+            "id": "attack-pattern--527f99b5-14af-4dce-8c2f-998051941874",
+            "created": "2023-04-07T14:13:16.755Z",
+            "modified": "2023-04-07T14:13:16.755Z",
+            "name": "WCQohuAfk"
+        },
+        {
+            "type": "attack-pattern",
+            "id": "attack-pattern--4074a0ba-829d-417b-9f38-aa36636683a2",
+            "created": "2023-04-07T14:13:16.756Z",
+            "modified": "2023-04-07T14:13:16.756Z",
+            "name": "YcHzCcI4R"
         },
         {
             "type": "relationship",
             "spec_version": "2.1",
-            "id": "relationship--f815fafc-791a-4bf0-959a-9533bdef0e5f",
-            "created": "2023-03-31T14:24:18.681591Z",
-            "modified": "2023-03-31T14:24:18.681591Z",
-            "relationship_type": "uses",
-            "source_ref": "indicator--f5aad376-8f06-4893-8579-8df5fdb0b2b0",
-            "target_ref": "attack-pattern--7e33a43e-e34b-40ec-89da-36c9bb2cacd5"
+            "id": "relationship--730c1c03-f9b9-47ad-84a4-c88b44f23320",
+            "created": "2023-04-07T14:13:30.410137Z",
+            "modified": "2023-04-07T14:13:30.410137Z",
+            "relationship_type": "shefdb",
+            "source_ref": "attack-pattern--527f99b5-14af-4dce-8c2f-998051941874",
+            "target_ref": "attack-pattern--48481f69-2935-4f6b-ba67-5794920d8ff1"
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--05ed1fa3-af85-4ec9-ac72-81711440cf10",
+            "created": "2023-04-07T14:13:33.305714Z",
+            "modified": "2023-04-07T14:13:33.305714Z",
+            "relationship_type": "nkbkuy",
+            "source_ref": "attack-pattern--4074a0ba-829d-417b-9f38-aa36636683a2",
+            "target_ref": "attack-pattern--ae54b65d-7f49-44de-8e4a-ef92ac6db176"
         }
     ]
 }
