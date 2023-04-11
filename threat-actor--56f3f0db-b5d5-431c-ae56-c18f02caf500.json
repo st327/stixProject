@@ -2,8 +2,13 @@
     "type": "threat-actor",
     "spec_version": "2.1",
     "id": "threat-actor--56f3f0db-b5d5-431c-ae56-c18f02caf500",
+<<<<<<< Updated upstream
     "created": "2023-04-04T19:04:28.525018Z",
     "modified": "2023-04-04T19:04:28.525018Z",
+=======
+    "created": "2023-04-11T15:10:56.051587Z",
+    "modified": "2023-04-11T15:10:56.051587Z",
+>>>>>>> Stashed changes
     "name": "russian haker",
     "description": "A particular form of spear phishing where the attacker claims that the target had won a contest, including personal details, to get them to click on a link.",
     "threat_actor_types": [
